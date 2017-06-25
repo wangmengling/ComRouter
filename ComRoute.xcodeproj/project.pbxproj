@@ -14,6 +14,9 @@
 		1626428D1EFF93E80084D9E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1626428B1EFF93E80084D9E4 /* LaunchScreen.storyboard */; };
 		162642981EFF93E80084D9E4 /* ComRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642971EFF93E80084D9E4 /* ComRouteTests.swift */; };
 		162642A31EFF93E80084D9E4 /* ComRouteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642A21EFF93E80084D9E4 /* ComRouteUITests.swift */; };
+		162642B21EFF940F0084D9E4 /* ComRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642B11EFF940F0084D9E4 /* ComRoute.swift */; };
+		162642B41EFF944A0084D9E4 /* ComRouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642B31EFF944A0084D9E4 /* ComRouteProtocol.swift */; };
+		162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,27 @@
 			remoteGlobalIDString = 1626427E1EFF93E80084D9E4;
 			remoteInfo = ComRoute;
 		};
+		162643391EFFAC120084D9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 162643331EFFAC120084D9E4 /* Storage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 162642F01EFF9B400084D9E4;
+			remoteInfo = Storage;
+		};
+		1626433B1EFFAC120084D9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 162643331EFFAC120084D9E4 /* Storage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 162643041EFF9B410084D9E4;
+			remoteInfo = StorageTests;
+		};
+		1626433D1EFFAC120084D9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 162643331EFFAC120084D9E4 /* Storage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1626430F1EFF9B410084D9E4;
+			remoteInfo = StorageUITests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +71,10 @@
 		1626429E1EFF93E80084D9E4 /* ComRouteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComRouteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		162642A21EFF93E80084D9E4 /* ComRouteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteUITests.swift; sourceTree = "<group>"; };
 		162642A41EFF93E80084D9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		162642B11EFF940F0084D9E4 /* ComRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRoute.swift; sourceTree = "<group>"; };
+		162642B31EFF944A0084D9E4 /* ComRouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteProtocol.swift; sourceTree = "<group>"; };
+		1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteDemo.swift; sourceTree = "<group>"; };
+		162643331EFFAC120084D9E4 /* Storage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Storage.xcodeproj; path = ../../Storage/Storage.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +125,11 @@
 		162642811EFF93E80084D9E4 /* ComRoute */ = {
 			isa = PBXGroup;
 			children = (
+				162643331EFFAC120084D9E4 /* Storage.xcodeproj */,
 				162642821EFF93E80084D9E4 /* AppDelegate.swift */,
+				1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */,
 				162642841EFF93E80084D9E4 /* ViewController.swift */,
+				162642B01EFF93F70084D9E4 /* ComRoute */,
 				162642861EFF93E80084D9E4 /* Main.storyboard */,
 				162642891EFF93E80084D9E4 /* Assets.xcassets */,
 				1626428B1EFF93E80084D9E4 /* LaunchScreen.storyboard */,
@@ -123,6 +154,25 @@
 				162642A41EFF93E80084D9E4 /* Info.plist */,
 			);
 			path = ComRouteUITests;
+			sourceTree = "<group>";
+		};
+		162642B01EFF93F70084D9E4 /* ComRoute */ = {
+			isa = PBXGroup;
+			children = (
+				162642B11EFF940F0084D9E4 /* ComRoute.swift */,
+				162642B31EFF944A0084D9E4 /* ComRouteProtocol.swift */,
+			);
+			name = ComRoute;
+			sourceTree = "<group>";
+		};
+		162643341EFFAC120084D9E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1626433A1EFFAC120084D9E4 /* Storage.app */,
+				1626433C1EFFAC120084D9E4 /* StorageTests.xctest */,
+				1626433E1EFFAC120084D9E4 /* StorageUITests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +265,12 @@
 			mainGroup = 162642761EFF93E80084D9E4;
 			productRefGroup = 162642801EFF93E80084D9E4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 162643341EFFAC120084D9E4 /* Products */;
+					ProjectRef = 162643331EFFAC120084D9E4 /* Storage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1626427E1EFF93E80084D9E4 /* ComRoute */,
@@ -223,6 +279,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1626433A1EFFAC120084D9E4 /* Storage.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Storage.app;
+			remoteRef = 162643391EFFAC120084D9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1626433C1EFFAC120084D9E4 /* StorageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StorageTests.xctest;
+			remoteRef = 1626433B1EFFAC120084D9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1626433E1EFFAC120084D9E4 /* StorageUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = StorageUITests.xctest;
+			remoteRef = 1626433D1EFFAC120084D9E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1626427D1EFF93E80084D9E4 /* Resources */ = {
@@ -257,7 +337,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				162642851EFF93E80084D9E4 /* ViewController.swift in Sources */,
+				162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */,
+				162642B41EFF944A0084D9E4 /* ComRouteProtocol.swift in Sources */,
 				162642831EFF93E80084D9E4 /* AppDelegate.swift in Sources */,
+				162642B21EFF940F0084D9E4 /* ComRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maolin.ComRoute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -438,7 +521,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maolin.ComRoute;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -524,6 +607,7 @@
 				162642A91EFF93E80084D9E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		162642AA1EFF93E80084D9E4 /* Build configuration list for PBXNativeTarget "ComRouteTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +616,7 @@
 				162642AC1EFF93E80084D9E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		162642AD1EFF93E80084D9E4 /* Build configuration list for PBXNativeTarget "ComRouteUITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +625,7 @@
 				162642AF1EFF93E80084D9E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		191BFF831F009BA5002A27A1 /* ComRouteCompenontTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF791F009BA5002A27A1 /* ComRouteCompenontTest.framework */; };
+		191BFF881F009BA5002A27A1 /* ComRouteCompenontTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF871F009BA5002A27A1 /* ComRouteCompenontTestTests.swift */; };
+		191BFF8A1F009BA5002A27A1 /* ComRouteCompenontTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 191BFF7C1F009BA5002A27A1 /* ComRouteCompenontTest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		191BFF9E1F009C0F002A27A1 /* ComRouteInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF9D1F009C0F002A27A1 /* ComRouteInterface.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		191BFF841F009BA5002A27A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 191BFF701F009BA5002A27A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 191BFF781F009BA5002A27A1;
+			remoteInfo = ComRouteCompenontTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		191BFF791F009BA5002A27A1 /* ComRouteCompenontTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ComRouteCompenontTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		191BFF7C1F009BA5002A27A1 /* ComRouteCompenontTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComRouteCompenontTest.h; sourceTree = "<group>"; };
+		191BFF7D1F009BA5002A27A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		191BFF821F009BA5002A27A1 /* ComRouteCompenontTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComRouteCompenontTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		191BFF871F009BA5002A27A1 /* ComRouteCompenontTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteCompenontTestTests.swift; sourceTree = "<group>"; };
+		191BFF891F009BA5002A27A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		191BFF9D1F009C0F002A27A1 /* ComRouteInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteInterface.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		191BFF751F009BA5002A27A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		191BFF7F1F009BA5002A27A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191BFF831F009BA5002A27A1 /* ComRouteCompenontTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		191BFF6F1F009BA5002A27A1 = {
+			isa = PBXGroup;
+			children = (
+				191BFF7B1F009BA5002A27A1 /* ComRouteCompenontTest */,
+				191BFF861F009BA5002A27A1 /* ComRouteCompenontTestTests */,
+				191BFF7A1F009BA5002A27A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		191BFF7A1F009BA5002A27A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				191BFF791F009BA5002A27A1 /* ComRouteCompenontTest.framework */,
+				191BFF821F009BA5002A27A1 /* ComRouteCompenontTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		191BFF7B1F009BA5002A27A1 /* ComRouteCompenontTest */ = {
+			isa = PBXGroup;
+			children = (
+				191BFF7C1F009BA5002A27A1 /* ComRouteCompenontTest.h */,
+				191BFF9D1F009C0F002A27A1 /* ComRouteInterface.swift */,
+				191BFF7D1F009BA5002A27A1 /* Info.plist */,
+			);
+			path = ComRouteCompenontTest;
+			sourceTree = "<group>";
+		};
+		191BFF861F009BA5002A27A1 /* ComRouteCompenontTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				191BFF871F009BA5002A27A1 /* ComRouteCompenontTestTests.swift */,
+				191BFF891F009BA5002A27A1 /* Info.plist */,
+			);
+			path = ComRouteCompenontTestTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		191BFF761F009BA5002A27A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191BFF8A1F009BA5002A27A1 /* ComRouteCompenontTest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		191BFF781F009BA5002A27A1 /* ComRouteCompenontTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 191BFF8D1F009BA5002A27A1 /* Build configuration list for PBXNativeTarget "ComRouteCompenontTest" */;
+			buildPhases = (
+				191BFF741F009BA5002A27A1 /* Sources */,
+				191BFF751F009BA5002A27A1 /* Frameworks */,
+				191BFF761F009BA5002A27A1 /* Headers */,
+				191BFF771F009BA5002A27A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ComRouteCompenontTest;
+			productName = ComRouteCompenontTest;
+			productReference = 191BFF791F009BA5002A27A1 /* ComRouteCompenontTest.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		191BFF811F009BA5002A27A1 /* ComRouteCompenontTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 191BFF901F009BA5002A27A1 /* Build configuration list for PBXNativeTarget "ComRouteCompenontTestTests" */;
+			buildPhases = (
+				191BFF7E1F009BA5002A27A1 /* Sources */,
+				191BFF7F1F009BA5002A27A1 /* Frameworks */,
+				191BFF801F009BA5002A27A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				191BFF851F009BA5002A27A1 /* PBXTargetDependency */,
+			);
+			name = ComRouteCompenontTestTests;
+			productName = ComRouteCompenontTestTests;
+			productReference = 191BFF821F009BA5002A27A1 /* ComRouteCompenontTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		191BFF701F009BA5002A27A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = maolin;
+				TargetAttributes = {
+					191BFF781F009BA5002A27A1 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+					191BFF811F009BA5002A27A1 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+				};
+			};
+			buildConfigurationList = 191BFF731F009BA5002A27A1 /* Build configuration list for PBXProject "ComRouteCompenontTest" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 191BFF6F1F009BA5002A27A1;
+			productRefGroup = 191BFF7A1F009BA5002A27A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				191BFF781F009BA5002A27A1 /* ComRouteCompenontTest */,
+				191BFF811F009BA5002A27A1 /* ComRouteCompenontTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		191BFF771F009BA5002A27A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		191BFF801F009BA5002A27A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		191BFF741F009BA5002A27A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191BFF9E1F009C0F002A27A1 /* ComRouteInterface.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		191BFF7E1F009BA5002A27A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				191BFF881F009BA5002A27A1 /* ComRouteCompenontTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		191BFF851F009BA5002A27A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 191BFF781F009BA5002A27A1 /* ComRouteCompenontTest */;
+			targetProxy = 191BFF841F009BA5002A27A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		191BFF8B1F009BA5002A27A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		191BFF8C1F009BA5002A27A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		191BFF8E1F009BA5002A27A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5F9R5KPEXS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ComRouteCompenontTest/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ComRoute.ComRouteCompenontTest;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		191BFF8F1F009BA5002A27A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5F9R5KPEXS;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ComRouteCompenontTest/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ComRoute.ComRouteCompenontTest;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		191BFF911F009BA5002A27A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5F9R5KPEXS;
+				INFOPLIST_FILE = ComRouteCompenontTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ComRoute.ComRouteCompenontTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		191BFF921F009BA5002A27A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5F9R5KPEXS;
+				INFOPLIST_FILE = ComRouteCompenontTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ComRoute.ComRouteCompenontTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		191BFF731F009BA5002A27A1 /* Build configuration list for PBXProject "ComRouteCompenontTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191BFF8B1F009BA5002A27A1 /* Debug */,
+				191BFF8C1F009BA5002A27A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		191BFF8D1F009BA5002A27A1 /* Build configuration list for PBXNativeTarget "ComRouteCompenontTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191BFF8E1F009BA5002A27A1 /* Debug */,
+				191BFF8F1F009BA5002A27A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		191BFF901F009BA5002A27A1 /* Build configuration list for PBXNativeTarget "ComRouteCompenontTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				191BFF911F009BA5002A27A1 /* Debug */,
+				191BFF921F009BA5002A27A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 191BFF701F009BA5002A27A1 /* Project object */;
+}

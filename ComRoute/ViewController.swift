@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        ComRoute.shareInstance.call("DemoComRoute", "ComRouteTest", "testDemo")
+//        ComRoute.shareInstance.call("ComRouteDemo", "ComRouteDemo", "firstTest")
+        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams")
+//        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams", ["test":"wangmaoling test"])
     }
 
 }

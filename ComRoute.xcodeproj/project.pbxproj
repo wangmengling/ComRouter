@@ -23,6 +23,7 @@
 		191BFF641F0099F9002A27A1 /* ComRouteDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouteDemo.framework */; };
 		191BFF651F0099F9002A27A1 /* ComRouteDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouteDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		191BFF6E1F009A4B002A27A1 /* ComRouteDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF6D1F009A4B002A27A1 /* ComRouteDemo.swift */; };
+		19A882751F01EE510098B3B3 /* ComRouteCompenontTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF9A1F009BC6002A27A1 /* ComRouteCompenontTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A882751F01EE510098B3B3 /* ComRouteCompenontTest.framework in Frameworks */,
 				191BFF641F0099F9002A27A1 /* ComRouteDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

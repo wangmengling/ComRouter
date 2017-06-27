@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 let comRoute = ComRoute()
 class ComRoute: NSObject {
     
@@ -66,14 +67,54 @@ extension ComRoute {
     }
     
     fileprivate func callFunc(_ classObject: NSObject, _ funcName: String, _ params: Dictionary<String,Any>?) -> Void {
-        let selectorAction:Selector = NSSelectorFromString(funcName)
-        if classObject.responds(to: selectorAction) {
-            classObject.perform(selectorAction, with: params)
+        let selectorAction:Selector = NSSelectorFromString(funcName+"::")
+//        if classObject.responds(to: selectorAction) {
+//            classObject.perform(selectorAction, with: params, with: "asdf")
+//        }
+        let object = self.extractMethodFrom(owner: classObject, selector: selectorAction)
+        if object != nil {
+            let dsd = object!("asdf","test")
+            print(dsd)
         }
+    }
+    
+    
+    func extractMethodFrom(owner: AnyObject, selector: Selector) -> ((String,String) -> AnyObject)? {
+        let method: Method
+        if owner is AnyClass {
+            method = class_getClassMethod(owner as! AnyClass, selector)
+        } else {
+            method = class_getInstanceMethod(type(of: owner), selector)
+        }
+        
+        let implementation = method_getImplementation(method)
+        
+        typealias Function = @convention(c) (AnyObject, Selector, String,String) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        
+        return { string,test in function(owner, selector, string,test).takeUnretainedValue() }
+    }
+    
+    func methodForBlock(_ classObject: NSObject, selectorAction:Selector) -> Void {
+//        let methodBlock = (() -> (Void)).self;
+//        typealias MethodType = (AnyObject, Selector, AnyObject) -> Void
+//        let methodToCall:MethodType = classObject.method(for: selectorAction) as MethodType
+//        classObject.method(for: selectorAction)
+//        methodToCall(classObject, selectorAction, "asdf" as AnyObject)
     }
 }
 
-//MARK:
+//MARK: 参数解析
 extension ComRoute {
+    func queryParamsOfDic(params:Dictionary<String,Any>) -> Any? {
+        return nil
+    }
     
+    func queryParamsOfArray(params:Array<Any>) -> Any? {
+        var tuples = ()
+        for param in params {
+            
+        }
+        return nil
+    }
 }

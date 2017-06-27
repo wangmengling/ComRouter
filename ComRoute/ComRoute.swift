@@ -67,6 +67,7 @@ extension ComRoute {
     }
     
     fileprivate func callFunc(_ classObject: NSObject, _ funcName: String, _ params: Dictionary<String,Any>?) -> Void {
+<<<<<<< Updated upstream
         let selectorAction:Selector = NSSelectorFromString(funcName+"::")
 //        if classObject.responds(to: selectorAction) {
 //            classObject.perform(selectorAction, with: params, with: "asdf")
@@ -85,6 +86,13 @@ extension ComRoute {
             method = class_getClassMethod(owner as! AnyClass, selector)
         } else {
             method = class_getInstanceMethod(type(of: owner), selector)
+=======
+        let selectorAction:Selector = NSSelectorFromString(funcName)
+        if classObject.responds(to: selectorAction) {
+            classObject.perform(selectorAction, with: params)
+//            classObject.
+//            externalP
+>>>>>>> Stashed changes
         }
         
         let implementation = method_getImplementation(method)

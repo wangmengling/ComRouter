@@ -17,6 +17,7 @@
 		162642B21EFF940F0084D9E4 /* ComRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642B11EFF940F0084D9E4 /* ComRoute.swift */; };
 		162642B41EFF944A0084D9E4 /* ComRouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642B31EFF944A0084D9E4 /* ComRouteProtocol.swift */; };
 		162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */; };
+		169138961F013FDF00CC38C7 /* ComRouteCompenontTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF9A1F009BC6002A27A1 /* ComRouteCompenontTest.framework */; };
 		191BFF581F0099F9002A27A1 /* ComRouteDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouteDemo.framework */; };
 		191BFF5F1F0099F9002A27A1 /* ComRouteDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF5E1F0099F9002A27A1 /* ComRouteDemoTests.swift */; };
 		191BFF611F0099F9002A27A1 /* ComRouteDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 191BFF511F0099F9002A27A1 /* ComRouteDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -124,7 +125,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
 				19A882751F01EE510098B3B3 /* ComRouteCompenontTest.framework in Frameworks */,
+=======
+				169138961F013FDF00CC38C7 /* ComRouteCompenontTest.framework in Frameworks */,
+>>>>>>> Stashed changes
 				191BFF641F0099F9002A27A1 /* ComRouteDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

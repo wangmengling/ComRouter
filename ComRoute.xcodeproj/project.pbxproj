@@ -125,11 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< Updated upstream
 				19A882751F01EE510098B3B3 /* ComRouteCompenontTest.framework in Frameworks */,
-=======
-				169138961F013FDF00CC38C7 /* ComRouteCompenontTest.framework in Frameworks */,
->>>>>>> Stashed changes
 				191BFF641F0099F9002A27A1 /* ComRouteDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

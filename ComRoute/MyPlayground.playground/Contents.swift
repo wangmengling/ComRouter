@@ -14,27 +14,28 @@ func vardicPrint(_ strings: String...) {
     }
 }
 
-//func optionalPrint(maybeStrings: String?...) {
-//    if maybeStrings.isEmpty {
-//        print("EMPTY")
-//    } else {
-//        for string in maybeStrings {
-//            if let string = string {
-//                print(string)
-//            } else {
-//                print("nil")
-//            }
-//
-//        }
-//    }
-//}
+func optionalPrint(maybeStrings: String?...) {
+    if maybeStrings.isEmpty {
+        print("EMPTY")
+    } else {
+        for string in maybeStrings {
+            if let string = string {
+                print(string)
+            } else {
+                print("nil")
+            }
+            
+        }
+    }
+}
 
 //vardicPrint(strings: <#T##String...##String#>)
-var tuple : (String,String) = ("小明","sadf")
-tuple.0
-vardicPrint("Hello", "World", "!")
+//var tuple : (String,String) = ("小明","sadf")
+//tuple.0
+//vardicPrint("Hello", "World", "!")
 //vardicPrint()
-
+optionalPrint(maybeStrings: "a", "sd")
+optionalPrint(maybeStrings: <#T##String?...##String?#>)
 //println()
 
 //var nilString: String?

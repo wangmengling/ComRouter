@@ -88,6 +88,7 @@ extension ComRoute {
         }
         
         let implementation = method_getImplementation(method)
+        typealias tupls = (AnyObject, Selector, String,String)
         
         typealias Function = @convention(c) (AnyObject, Selector, String,String) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
@@ -113,10 +114,15 @@ extension ComRoute {
     }
     
     func queryParamsOfArray(params:Array<Any>) -> Any? {
-        var tuples = ()
-        for param in params {
-            
-        }
+//        var tuples = ()
+//        var tuples = (String,String)
+//        for param in params {
+//
+//        }
         return nil
+    }
+    
+    func queryParamsOfMutil(param:Any...) -> Any? {
+        return nil;
     }
 }

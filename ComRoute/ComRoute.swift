@@ -8,6 +8,7 @@
 
 import Foundation
 
+//typealias U = ()
 
 let comRoute = ComRoute()
 class ComRoute: NSObject {
@@ -17,38 +18,45 @@ class ComRoute: NSObject {
     }
     
     var modleName: String?
+    var classObject: AnyObject?
+    var selectorAction:Selector?
+    
     
     
 }
 
 extension ComRoute {
     
-    func call(className: String, _ funcName: String) -> Void {
-        self.call(className: className, funcName, nil)
+}
+
+extension ComRoute {
+    
+    func call(className: String, _ funcName: String) -> Self {
+        return self.call(className: className, funcName, nil)
     }
     
-    func call(className: String, _ funcName: String, _ params: Dictionary<String, Any>?) -> Void {
-        guard let moduleName: String = self.modleName else { return ; }
-        self.call(moduleName: moduleName, className, funcName, params)
+    func call(className: String, _ funcName: String, _ params: Dictionary<String, Any>?) -> Self {
+        guard let moduleName: String = self.modleName else { return self; }
+        return self.call(moduleName: moduleName, className, funcName, params)
     }
     
-    func call(moduleName: String, _ className: String ,_ funcName: String) -> Void {
+    func call(moduleName: String, _ className: String ,_ funcName: String) -> Self {
 //        self.call(moduleName:moduleName, className, funcName, nil)
         let moduleOfClass = moduleName + "." + className
         let classObject = callClassName(moduleOfClass)
         guard let classObjectE = classObject else {
-            return
+            return self
         }
-        callFunc(classObjectE, funcName)
+        return callFunc(classObjectE, funcName)
     }
     
-    func call(moduleName: String, _ className: String ,_ funcName: String, _ params: Dictionary<String, Any>?) -> Void {
+    func call(moduleName: String, _ className: String ,_ funcName: String, _ params: Dictionary<String, Any>?) -> Self {
         let moduleOfClass = moduleName + "." + className
         let classObject = callClassName(moduleOfClass)
         guard let classObjectE = classObject else {
-            return
+            return self
         }
-        callFunc(classObjectE, funcName, params)
+        return callFunc(classObjectE, funcName, params)
     }
 }
 
@@ -62,20 +70,23 @@ extension ComRoute {
         return nil
     }
     
-    fileprivate func callFunc(_ classObject: NSObject, _ funcName: String) -> Void {
-        self.callFunc(classObject, funcName, nil)
+    fileprivate func callFunc(_ classObject: NSObject, _ funcName: String) -> Self {
+        return self.callFunc(classObject, funcName, nil)
     }
     
-    fileprivate func callFunc(_ classObject: NSObject, _ funcName: String, _ params: Dictionary<String,Any>?) -> Void {
-        let selectorAction:Selector = NSSelectorFromString(funcName+"::")
+    fileprivate func callFunc(_ classObject: NSObject, _ funcName: String, _ params: Dictionary<String,Any>?) -> Self {
+        let selectorAction:Selector = NSSelectorFromString(funcName)
 //        if classObject.responds(to: selectorAction) {
 //            classObject.perform(selectorAction, with: params, with: "asdf")
 //        }
-        let object = self.extractMethodFrom(owner: classObject, selector: selectorAction)
-        if object != nil {
-            let dsd = object!("asdf","test")
-            print(dsd)
-        }
+//        let object = self.extractMethodFrom(owner: classObject, selector: selectorAction)
+//        if object != nil {
+//            let dsd = object!("asdf","test")
+//            print(dsd)
+//        }
+        self.classObject = classObject;
+        self.selectorAction = selectorAction;
+        return self;
     }
     
     
@@ -96,33 +107,102 @@ extension ComRoute {
         return { string,test in function(owner, selector, string,test).takeUnretainedValue() }
     }
     
-    func methodForBlock(_ classObject: NSObject, selectorAction:Selector) -> Void {
-//        var tuple : (String, (Float,Float,Float,Float,Float)) = ("小明",(90,87,88.5,95,78))
+    func methodForBlock<U>(_ params:U) -> Void {
         
-//        let methodBlock = (() -> (Void)).self;
-//        typealias MethodType = (AnyObject, Selector, AnyObject) -> Void
-//        let methodToCall:MethodType = classObject.method(for: selectorAction) as MethodType
-//        classObject.method(for: selectorAction)
-//        methodToCall(classObject, selectorAction, "asdf" as AnyObject)
+        typealias Function = @convention(c) (AnyObject, Selector, Any) -> Unmanaged<AnyObject>
     }
+    
+    func methodForBlock(_ block:(AnyObject, Selector, Any) -> Unmanaged<AnyObject>) -> Void {
+        
+        typealias Function = @convention(c) (AnyObject, Selector, Any) -> Unmanaged<AnyObject>
+        
+    }
+}
+
+//MARK: Method IMP
+extension ComRoute {
+    
+    // Method
+    func getMethod(owner: AnyObject, selector: Selector) -> Method {
+        let method: Method
+        if owner is AnyClass {
+            method = class_getClassMethod(owner as! AnyClass, selector)
+        } else {
+            method = class_getInstanceMethod(type(of: owner), selector)
+        }
+        return method;
+    }
+    
+    // Method IMP
+    func getMethodIMP(_ method:Method) -> IMP? {
+        let implementation = method_getImplementation(method)
+        return implementation;
+    }
+    
+    func getMethodIMP() -> IMP? {
+        guard let classObject = self.classObject, let selectorAction = self.selectorAction else { return nil }
+        let method = self.getMethod(owner: classObject, selector: selectorAction)
+        return self.getMethodIMP(method)
+    }
+}
+
+extension ComRoute {
+    fileprivate func sendParam() -> Any? {
+        guard let implementation = self.getMethodIMP() else { return nil; }
+        typealias Function = @convention(c) (AnyObject, Selector) -> Unmanaged<AnyObject>?
+        let function = unsafeBitCast(implementation, to: Function.self)
+        return function(self.classObject!, self.selectorAction!)?.takeUnretainedValue()
+    }
+    
+    fileprivate func sendParam(_ param:Any) -> Any? {
+        guard let implementation = self.getMethodIMP() else { return nil; }
+        typealias Function = @convention(c) (AnyObject, Selector, Any) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        return function(self.classObject!, self.selectorAction!, param).takeUnretainedValue()
+    }
+    
+    fileprivate func sendParam(_ param:Any,_ paramTwo:Any) -> Any? {
+        guard let implementation = self.getMethodIMP() else { return nil; }
+        typealias Function = @convention(c) (AnyObject, Selector, Any, Any) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        return function(self.classObject!, self.selectorAction!, param, param).takeUnretainedValue()
+    }
+    
+    fileprivate func sendParam(_ param:Any, _ paramTwo:Any, _ paramThree:Any) -> Any? {
+        guard let implementation = self.getMethodIMP() else { return nil; }
+        typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        return function(self.classObject!, self.selectorAction!, param, paramTwo, paramThree).takeUnretainedValue()
+    }
+    
+    fileprivate func sendParam(_ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any) -> Any? {
+        guard let implementation = self.getMethodIMP() else { return nil; }
+        typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any, Any) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        return function(self.classObject!, self.selectorAction!, param, paramTwo, paramThree, paramFour).takeUnretainedValue()
+    }
+    
+    fileprivate func sendParam(_ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any, _ paramFive:Any) -> Any? {
+        guard let implementation = self.getMethodIMP() else { return nil; }
+        typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any, Any, Any) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        return function(self.classObject!, self.selectorAction!, param, paramTwo, paramThree, paramFour, paramFive).takeUnretainedValue()
+    }
+    
+    //    fileprivate func sendParam(_ param:String) -> ((String) -> AnyObject)? {
+    //        guard let implementation = self.getMethodIMP() else { return nil; }
+    //        typealias Function = @convention(c) (AnyObject, Selector, String) -> Unmanaged<AnyObject>
+    //        let function = unsafeBitCast(implementation, to: Function.self)
+    //        return { string in function(self.classObject!, self.selectorAction!, string).takeUnretainedValue() }
+    //    }
 }
 
 //MARK: 参数解析
 extension ComRoute {
-    func queryParamsOfDic(params:Dictionary<String,Any>) -> Any? {
-        return nil
-    }
-    
-    func queryParamsOfArray(params:Array<Any>) -> Any? {
-//        var tuples = ()
-//        var tuples = (String,String)
-//        for param in params {
-//
-//        }
-        return nil
-    }
-    
-    func queryParamsOfMutil(param:Any...) -> Any? {
-        return nil;
+    func params(_ params:Any ...,_ block: (Any)->()) {
+        let o = self.sendParam()
+        if (o != nil) {
+            block(o as Any)
+        }
     }
 }

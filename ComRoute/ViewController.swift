@@ -24,7 +24,10 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 //        ComRoute.shareInstance.call("ComRouteDemo", "ComRouteDemo", "firstTest")
 //        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams")
-        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams", ["test":"wangmaoling test"])
+        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("ceshi",1) { (obejct) in
+            print(obejct)
+        }
+        
     }
 
 }

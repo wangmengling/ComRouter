@@ -1,6 +1,6 @@
 //
-//  ComRoute.swift
-//  ComRoute
+//  ComRouter.swift
+//  ComRouter
 //
 //  Created by jackWang on 2017/6/25.
 //  Copyright © 2017年 jackWang. All rights reserved.
@@ -8,28 +8,33 @@
 
 import Foundation
 
-//typealias U = ()
 
-let comRoute = ComRoute()
-class ComRoute: NSObject {
+let comRouter = ComRouter()
+class ComRouter: NSObject {
     
-    class var shareInstance: ComRoute {
-        return comRoute;
+    class var shareInstance: ComRouter {
+        return comRouter;
     }
     
     var modleName: String?
     var classObject: AnyObject?
     var selectorAction:Selector?
     
-    
-    
-}
-
-extension ComRoute {
+    let syncQueue: DispatchQueue = DispatchQueue(label: "com.wangmaoling.router.syncQueue", attributes: .concurrent)
     
 }
 
-extension ComRoute {
+extension ComRouter {
+    func moduleName(_ moduleName: String) -> Void {
+        self.syncQueue.sync {
+            
+        }
+//        self.syncQueue.add
+//        return self
+    }
+}
+
+extension ComRouter {
     
     func call(className: String, _ funcName: String) -> Self {
         return self.call(className: className, funcName, nil)
@@ -60,7 +65,7 @@ extension ComRoute {
     }
 }
 
-extension ComRoute {
+extension ComRouter {
     fileprivate func callClassName(_ className:String) -> NSObject? {
         let classType = NSClassFromString(className) as? NSObject.Type
         if let type = classType {
@@ -113,14 +118,12 @@ extension ComRoute {
     }
     
     func methodForBlock(_ block:(AnyObject, Selector, Any) -> Unmanaged<AnyObject>) -> Void {
-        
         typealias Function = @convention(c) (AnyObject, Selector, Any) -> Unmanaged<AnyObject>
-        
     }
 }
 
 //MARK: Method IMP
-extension ComRoute {
+extension ComRouter {
     
     // Method
     func getMethod(owner: AnyObject, selector: Selector) -> Method {
@@ -146,7 +149,7 @@ extension ComRoute {
     }
 }
 
-extension ComRoute {
+extension ComRouter {
     fileprivate func sendParam() -> Any? {
         guard let implementation = self.getMethodIMP() else { return nil; }
         typealias Function = @convention(c) (AnyObject, Selector) -> Unmanaged<AnyObject>?
@@ -198,7 +201,7 @@ extension ComRoute {
 }
 
 //MARK: 参数解析
-extension ComRoute {
+extension ComRouter {
     func params(_ params:Any ...,_ block: (Any)->()) {
         let o = self.sendParam()
         if (o != nil) {

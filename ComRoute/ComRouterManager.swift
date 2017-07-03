@@ -44,12 +44,26 @@ extension ComRouterManager {
 }
 
 extension ComRouterManager {
-    func selectorActions(_ className: String?, _ selectorName: String?) -> Selector? {
+    mutating func selectorActions(_ className: String?, _ selectorName: String?) -> Selector? {
         guard let className = className else { return nil }
         guard let selectorName = selectorName else { return nil }
-        let selectorAction = self.selectorActions
-//        guard let selectorActions = selectorActions else { return <#return value#> }
+        let selectorActions = self.selectorActions[className]
+        guard var selectorActionsGuard:[String:Selector] = selectorActions else {
+            let selectorAction:Selector = NSSelectorFromString(selectorName)
+            self.selectorActions[className] = [selectorName:selectorAction]
+            return selectorAction
+        }
+        let selectorAction = selectorActionsGuard[selectorName]
+        guard let selectorActionGuard = selectorAction else {
+            let selectorAction:Selector = NSSelectorFromString(selectorName)
+            selectorActionsGuard[selectorName] = selectorAction
+            self.selectorActions[className] = selectorActionsGuard
+            return selectorAction
+        }
+        return selectorActionGuard;
     }
+    
+    
 }
 
 extension ComRouterManager {
@@ -140,60 +154,70 @@ extension ComRouterManager {
 
 
 extension ComRouterManager {
-    fileprivate func sendParam() -> Any? {
-        guard let implementation = self.getMethodIMP() else { return nil; }
+    fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector) -> Unmanaged<AnyObject>?
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(self.classObject!, self.selectorAction!)?.takeUnretainedValue()
+        return function(classObject, selectorAction)?.takeUnretainedValue()
     }
     
-    fileprivate func sendParam(_ param:Any) -> Any? {
-        guard let implementation = self.getMethodIMP() else { return nil; }
+    fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ param:Any) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector, Any) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(self.classObject!, self.selectorAction!, param).takeUnretainedValue()
+        return function(classObject, selectorAction, param).takeUnretainedValue()
     }
     
-    fileprivate func sendParam(_ param:Any,_ paramTwo:Any) -> Any? {
-        guard let implementation = self.getMethodIMP() else { return nil; }
+    fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ param:Any,_ paramTwo:Any) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector, Any, Any) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(self.classObject!, self.selectorAction!, param, param).takeUnretainedValue()
+        return function(classObject, selectorAction, param, param).takeUnretainedValue()
     }
     
-    fileprivate func sendParam(_ param:Any, _ paramTwo:Any, _ paramThree:Any) -> Any? {
-        guard let implementation = self.getMethodIMP() else { return nil; }
+    fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ param:Any, _ paramTwo:Any, _ paramThree:Any) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(self.classObject!, self.selectorAction!, param, paramTwo, paramThree).takeUnretainedValue()
+        return function(classObject, selectorAction, param, paramTwo, paramThree).takeUnretainedValue()
     }
     
-    fileprivate func sendParam(_ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any) -> Any? {
-        guard let implementation = self.getMethodIMP() else { return nil; }
+    fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any, Any) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(self.classObject!, self.selectorAction!, param, paramTwo, paramThree, paramFour).takeUnretainedValue()
+        return function(classObject, selectorAction, param, paramTwo, paramThree, paramFour).takeUnretainedValue()
     }
     
-    fileprivate func sendParam(_ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any, _ paramFive:Any) -> Any? {
-        guard let implementation = self.getMethodIMP() else { return nil; }
+    fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP , _ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any, _ paramFive:Any) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any, Any, Any) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(self.classObject!, self.selectorAction!, param, paramTwo, paramThree, paramFour, paramFive).takeUnretainedValue()
+        return function(classObject, selectorAction, param, paramTwo, paramThree, paramFour, paramFive).takeUnretainedValue()
     }
     
     func callSelectorAction(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ params:[Any]) ->  Any?  {
-        
+        switch params.count {
+        case 0:
+            return self.sendParam(classObject,selectorAction,implementation)
+        case 1:
+            return self.sendParam(classObject, selectorAction, implementation, params[0])
+        case 2:
+            return self.sendParam(classObject, selectorAction, implementation, params[0], params[1])
+        case 3:
+            return self.sendParam(classObject, selectorAction, implementation, params[0], params[1], params[2])
+        case 4:
+            return self.sendParam(classObject, selectorAction, implementation, params[0], params[1], params[2], params[3])
+        case 5:
+            return self.sendParam(classObject, selectorAction, implementation, params[0], params[1], params[2], params[3], params[4])
+        default:
+            return self.sendParam(classObject,selectorAction,implementation)
+        }
     }
 }
 
 extension ComRouterManager {
-    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any],  _ block: (Any)->()) {
+    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any],  _ block: (Any?)->()) {
         
         guard let classObject = self.classObject(className) else { return  }
-        guard let selectorAction = self.selectorMethod(className, selectorName) else { return  }
+        guard let selectorAction = self.selectorActions(className, selectorName) else { return  }
         guard let implementation = self.selectorMethod(className, selectorName) else { return }
-        self.callSelectorAction(classObject, selectorAction, implementation, params)
+        let result = self.callSelectorAction(classObject, selectorAction, implementation, params)
+        block(result)
     }
 }
 

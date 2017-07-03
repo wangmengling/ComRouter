@@ -35,14 +35,16 @@ class ViewController: UIViewController {
 //        ComRouter.shareInstance.moduleName("").className("").params(<#T##params: Any...##Any#>) { () in
 //            <#code#>
 //        }
-        ComRouter.shareInstance.params("wang","wang1", paramNames:["param1","param1"]) { (object) in
-            print(object)
+//        ComRouter.shareInstance.params("wang","wang1", paramNames:["param1","param1"]) { (object) in
+//            print(object)
+//        }
+//
+//        ComRouter.shareInstance.params("wang","wang1", paramNames:[1:"param1"]) { (object) in
+//            print(object)
+//        }
+    ComRouter.shareInstance.moduleName("ComRouteCompenontTest").className("ComRouteInterface").funcName("comRouteForParams").params("test","test") { (result) in
+            print(result)
         }
-        
-        ComRouter.shareInstance.params("wang","wang1", paramNames:[1:"param1"]) { (object) in
-            print(object)
-        }
-        
     }
     
     

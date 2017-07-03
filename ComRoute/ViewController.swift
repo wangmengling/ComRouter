@@ -24,11 +24,27 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 //        ComRoute.shareInstance.call("ComRouteDemo", "ComRouteDemo", "firstTest")
 //        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams")
-        ComRouter.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("ceshi",1) { (obejct) in
-            print(obejct)
+//        ComRouter.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("ceshi",1) { (obejct) in
+//            print(obejct)
+//        }
+//
+//        ComRouter.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("ceshi",1) { (obejct) in
+//            print(obejct)
+//        }
+//
+//        ComRouter.shareInstance.moduleName("").className("").params(<#T##params: Any...##Any#>) { () in
+//            <#code#>
+//        }
+        ComRouter.shareInstance.params("wang","wang1", paramNames:["param1","param1"]) { (object) in
+            print(object)
+        }
+        
+        ComRouter.shareInstance.params("wang","wang1", paramNames:[1:"param1"]) { (object) in
+            print(object)
         }
         
     }
-
+    
+    
 }
 

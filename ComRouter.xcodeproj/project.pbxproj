@@ -14,11 +14,7 @@
 		1626428D1EFF93E80084D9E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1626428B1EFF93E80084D9E4 /* LaunchScreen.storyboard */; };
 		162642981EFF93E80084D9E4 /* ComRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642971EFF93E80084D9E4 /* ComRouteTests.swift */; };
 		162642A31EFF93E80084D9E4 /* ComRouteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642A21EFF93E80084D9E4 /* ComRouteUITests.swift */; };
-		162642B21EFF940F0084D9E4 /* ComRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642B11EFF940F0084D9E4 /* ComRouter.swift */; };
-		162642B41EFF944A0084D9E4 /* ComRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642B31EFF944A0084D9E4 /* ComRouterProtocol.swift */; };
 		162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */; };
-		168FB46C1F0C8B0800B2B95E /* ComRouterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168FB46B1F0C8B0800B2B95E /* ComRouterError.swift */; };
-		16E841531F089B1D00AB1D0C /* ComRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165000CB1F08999D000D3DEF /* ComRouterManager.swift */; };
 		191BFF581F0099F9002A27A1 /* ComRouterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouterDemo.framework */; };
 		191BFF5F1F0099F9002A27A1 /* ComRouteDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF5E1F0099F9002A27A1 /* ComRouteDemoTests.swift */; };
 		191BFF611F0099F9002A27A1 /* ComRouteDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 191BFF511F0099F9002A27A1 /* ComRouteDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -108,11 +104,11 @@
 		1626429E1EFF93E80084D9E4 /* ComRouterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComRouterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		162642A21EFF93E80084D9E4 /* ComRouteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteUITests.swift; sourceTree = "<group>"; };
 		162642A41EFF93E80084D9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		162642B11EFF940F0084D9E4 /* ComRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouter.swift; sourceTree = "<group>"; };
-		162642B31EFF944A0084D9E4 /* ComRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterProtocol.swift; sourceTree = "<group>"; };
 		1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteDemo.swift; sourceTree = "<group>"; };
-		165000CB1F08999D000D3DEF /* ComRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterManager.swift; sourceTree = "<group>"; };
-		168FB46B1F0C8B0800B2B95E /* ComRouterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterError.swift; sourceTree = "<group>"; };
+		16877E721F0E7BA10010118A /* ComRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouter.swift; sourceTree = "<group>"; };
+		16877E731F0E7BA10010118A /* ComRouterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterError.swift; sourceTree = "<group>"; };
+		16877E741F0E7BA10010118A /* ComRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterManager.swift; sourceTree = "<group>"; };
+		16877E751F0E7BA10010118A /* ComRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterProtocol.swift; sourceTree = "<group>"; };
 		191BFF4F1F0099F9002A27A1 /* ComRouterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ComRouterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		191BFF511F0099F9002A27A1 /* ComRouteDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComRouteDemo.h; sourceTree = "<group>"; };
 		191BFF521F0099F9002A27A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +164,7 @@
 		162642761EFF93E80084D9E4 = {
 			isa = PBXGroup;
 			children = (
+				16877E711F0E7BA10010118A /* Source */,
 				191BFF931F009BB7002A27A1 /* Compenont */,
 				162642811EFF93E80084D9E4 /* ComRouter */,
 				162642961EFF93E80084D9E4 /* ComRouterTests */,
@@ -196,7 +193,6 @@
 				162642821EFF93E80084D9E4 /* AppDelegate.swift */,
 				1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */,
 				162642841EFF93E80084D9E4 /* ViewController.swift */,
-				162642B01EFF93F70084D9E4 /* ComRouter */,
 				162642861EFF93E80084D9E4 /* Main.storyboard */,
 				162642891EFF93E80084D9E4 /* Assets.xcassets */,
 				1626428B1EFF93E80084D9E4 /* LaunchScreen.storyboard */,
@@ -223,15 +219,15 @@
 			path = ComRouterUITests;
 			sourceTree = "<group>";
 		};
-		162642B01EFF93F70084D9E4 /* ComRouter */ = {
+		16877E711F0E7BA10010118A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				162642B11EFF940F0084D9E4 /* ComRouter.swift */,
-				168FB46B1F0C8B0800B2B95E /* ComRouterError.swift */,
-				165000CB1F08999D000D3DEF /* ComRouterManager.swift */,
-				162642B31EFF944A0084D9E4 /* ComRouterProtocol.swift */,
+				16877E721F0E7BA10010118A /* ComRouter.swift */,
+				16877E731F0E7BA10010118A /* ComRouterError.swift */,
+				16877E741F0E7BA10010118A /* ComRouterManager.swift */,
+				16877E751F0E7BA10010118A /* ComRouterProtocol.swift */,
 			);
-			name = ComRouter;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		191BFF501F0099F9002A27A1 /* ComRouterDemo */ = {
@@ -500,11 +496,7 @@
 			files = (
 				162642851EFF93E80084D9E4 /* ViewController.swift in Sources */,
 				162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */,
-				162642B41EFF944A0084D9E4 /* ComRouterProtocol.swift in Sources */,
 				162642831EFF93E80084D9E4 /* AppDelegate.swift in Sources */,
-				168FB46C1F0C8B0800B2B95E /* ComRouterError.swift in Sources */,
-				16E841531F089B1D00AB1D0C /* ComRouterManager.swift in Sources */,
-				162642B21EFF940F0084D9E4 /* ComRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

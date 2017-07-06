@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 //            print(result)
 //        }
         
-        ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterfaces", "comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in
+        ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in
             print(error as Any)
         }
         

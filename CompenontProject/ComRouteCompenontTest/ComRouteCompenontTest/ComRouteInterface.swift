@@ -23,7 +23,7 @@ class ComRouteInterface: NSObject {
 //        print(test);
 //    }
     
-    func comRouteForParams(_ test: String, _ string: String) -> AnyObject?{
+    func comRouteForParams(_ test: String, string: String) -> AnyObject?{
         print(string);
         return test as AnyObject;
     }
@@ -32,6 +32,7 @@ class ComRouteInterface: NSObject {
         print(string);
         return test as AnyObject;
     }
+    
     
 //    func comRouteForParams(_ test: String, string: String) -> AnyObject?{
 //        print(string);

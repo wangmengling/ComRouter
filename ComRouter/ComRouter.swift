@@ -22,9 +22,6 @@ class ComRouter: NSObject {
     
     var classObject: AnyObject?
     var selectorAction:Selector?
-    
-    let syncQueue: DispatchQueue = DispatchQueue(label: "com.wangmaoling.router.syncQueue", attributes: .concurrent)
-    var error:NSError?
 }
 
 extension ComRouter {

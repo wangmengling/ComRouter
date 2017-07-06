@@ -15,6 +15,10 @@
 		162642981EFF93E80084D9E4 /* ComRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642971EFF93E80084D9E4 /* ComRouteTests.swift */; };
 		162642A31EFF93E80084D9E4 /* ComRouteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162642A21EFF93E80084D9E4 /* ComRouteUITests.swift */; };
 		162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */; };
+		1681D0C01F0E818000B3A0D1 /* ComRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16877E721F0E7BA10010118A /* ComRouter.swift */; };
+		1681D0C31F0E818300B3A0D1 /* ComRouterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16877E731F0E7BA10010118A /* ComRouterError.swift */; };
+		1681D0C41F0E818500B3A0D1 /* ComRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16877E741F0E7BA10010118A /* ComRouterManager.swift */; };
+		1681D0C51F0E818800B3A0D1 /* ComRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16877E751F0E7BA10010118A /* ComRouterProtocol.swift */; };
 		191BFF581F0099F9002A27A1 /* ComRouterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouterDemo.framework */; };
 		191BFF5F1F0099F9002A27A1 /* ComRouteDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF5E1F0099F9002A27A1 /* ComRouteDemoTests.swift */; };
 		191BFF611F0099F9002A27A1 /* ComRouteDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 191BFF511F0099F9002A27A1 /* ComRouteDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -495,7 +499,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				162642851EFF93E80084D9E4 /* ViewController.swift in Sources */,
+				1681D0C31F0E818300B3A0D1 /* ComRouterError.swift in Sources */,
 				162643301EFFA1AE0084D9E4 /* ComRouteDemo.swift in Sources */,
+				1681D0C51F0E818800B3A0D1 /* ComRouterProtocol.swift in Sources */,
+				1681D0C01F0E818000B3A0D1 /* ComRouter.swift in Sources */,
+				1681D0C41F0E818500B3A0D1 /* ComRouterManager.swift in Sources */,
 				162642831EFF93E80084D9E4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

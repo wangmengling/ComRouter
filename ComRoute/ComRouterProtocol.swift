@@ -7,6 +7,9 @@
 //
 
 import Foundation
-protocol ComRouteProtocol {
+protocol ComRouterLogProtocol {
+    
+}
+protocol ComRouterProtocol {
     
 }

@@ -8,9 +8,10 @@
 
 import Foundation
 
-public class ComRouteDemo: NSObject {
-    @objc
-    public func test(){
+
+@objc public class ComRouteDemo: NSObject {
+    
+    @objc public func test(){
         print("test one")
     }
 }

@@ -22,6 +22,10 @@ extension ComRouterManager {
 //MARK: Class Object
 extension ComRouterManager {
     
+    /// Get the class object
+    ///
+    /// - Parameter className: <#className description#>
+    /// - Returns: <#return value description#>
     fileprivate mutating func classObject(_ className:String?) -> NSObject? {
         guard let className = className else { return nil }
         let classObject:NSObject? = self.classObjects[className]
@@ -32,6 +36,11 @@ extension ComRouterManager {
         return classObjectG
     }
     
+    
+    /// Create Class Object
+    ///
+    /// - Parameter className: Class name
+    /// - Returns: Create class object
     fileprivate mutating func callClassObject(_ className:String) -> NSObject? {
         let classType = NSClassFromString(className) as? NSObject.Type
         if let type = classType {
@@ -104,8 +113,8 @@ extension ComRouterManager {
     }
     
     // Method
-    private func getMethod(owner: AnyObject, selector: Selector) -> Method {
-        let method: Method
+    private func getMethod(owner: AnyObject, selector: Selector) -> Method? {
+        let method: Method?
         if owner is AnyClass {
             method = class_getClassMethod(owner as! AnyClass, selector)
         } else {
@@ -122,7 +131,9 @@ extension ComRouterManager {
     
     //
     private func getMethodIMP(_ classObject: AnyObject, _ selectorAction:Selector) -> IMP? {
-        let method = self.getMethod(owner: classObject, selector: selectorAction)
+        guard let method = self.getMethod(owner: classObject, selector: selectorAction) else {
+            return nil
+        }
         return self.getMethodIMP(method)
     }
     
@@ -169,7 +180,7 @@ extension ComRouterManager {
     fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ param:Any,_ paramTwo:Any) -> Any? {
         typealias Function = @convention(c) (AnyObject, Selector, Any, Any) -> Unmanaged<AnyObject>
         let function = unsafeBitCast(implementation, to: Function.self)
-        return function(classObject, selectorAction, param, param).takeUnretainedValue()
+        return function(classObject, selectorAction, param, paramTwo).takeUnretainedValue()
     }
     
     fileprivate func sendParam(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ param:Any, _ paramTwo:Any, _ paramThree:Any) -> Any? {
@@ -211,14 +222,38 @@ extension ComRouterManager {
 }
 
 extension ComRouterManager {
-    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any],  _ block: (Any?)->()) {
+    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any],  _ block: (Any?,NSError?)->()) {
+        guard let classObject = self.classObject(className) else {
+            return  block(nil,ComRouterError.property.classType.error())
+        } //Class Object Init
+        guard let selectorAction = self.selectorActions(className, selectorName) else {
+            return  block(nil,ComRouterError.property.selectorAction.error())
+            
+        } //Selector
+        guard let implementation = self.selectorMethod(className, selectorName) else {
+            return block(nil,ComRouterError.property.selectorIMP.error())
+        } // Selector IMP
         
-        guard let classObject = self.classObject(className) else { return  }
-        guard let selectorAction = self.selectorActions(className, selectorName) else { return  }
-        guard let implementation = self.selectorMethod(className, selectorName) else { return }
         let result = self.callSelectorAction(classObject, selectorAction, implementation, params)
-        block(result)
+        block(result,nil)
     }
 }
 
-
+extension ComRouter {
+    fileprivate func extractMethodFrom(owner: AnyObject, selector: Selector) -> ((String,String) -> AnyObject)? {
+        let method: Method
+        if owner is AnyClass {
+            method = class_getClassMethod(owner as! AnyClass, selector)
+        } else {
+            method = class_getInstanceMethod(type(of: owner), selector)
+        }
+        
+        let implementation = method_getImplementation(method)
+        typealias tupls = (AnyObject, Selector, String,String)
+        
+        typealias Function = @convention(c) (AnyObject, Selector, String,String) -> Unmanaged<AnyObject>
+        let function = unsafeBitCast(implementation, to: Function.self)
+        
+        return { string,test in function(owner, selector, string,test).takeUnretainedValue() }
+    }
+}

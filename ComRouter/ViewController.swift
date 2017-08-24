@@ -22,13 +22,18 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        ComRoute.shareInstance.call("ComRouteDemo", "ComRouteDemo", "firstTest")
-//        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams")
-        ComRoute.shareInstance.call(moduleName: "ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("ceshi",1) { (obejct) in
-            print(obejct)
-        }
+//    ComRouter.shareInstance.moduleName("ComRouteCompenontTest").className("ComRouteInterface").funcName("comRouteForParams").params("test","test") { (result) in
+//            print(result)
+//        }
+        
+//        ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in
+//            print(error as Any)
+//        }
+        
+        
+        
+        
         
     }
-
 }
 

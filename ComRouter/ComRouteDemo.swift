@@ -1,5 +1,5 @@
 //
-//  ComRouteProtocol.swift
+//  ComRouteDemo.swift
 //  ComRoute
 //
 //  Created by jackWang on 2017/6/25.
@@ -7,6 +7,11 @@
 //
 
 import Foundation
-protocol ComRouteProtocol {
+
+
+@objc public class ComRouteDemo: NSObject {
     
+    @objc public func test(){
+        print("test one")
+    }
 }

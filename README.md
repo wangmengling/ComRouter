@@ -5,6 +5,7 @@
 ComRouter is a componentized intermediate router, ComRouter is a component of the middle of the router, call the external interface between the various components
 
 ## usage
+**function params()** Maximum support for 5 parameters 
 
 > Direct call
 

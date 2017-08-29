@@ -281,6 +281,8 @@ extension ComRouterManager {
     ///   - params: [Any]
     /// - Returns: call result Any
     func callSelectorAction(_ classObject:AnyObject, _ selectorAction:Selector, _ implementation:IMP, _ params:[Any]) ->  Any?  {
+        
+//        return self.sendParam(classObject,selectorAction,implementation,params)
         switch params.count {
         case 0:
             return self.sendParam(classObject,selectorAction,implementation)
@@ -331,9 +333,9 @@ extension ComRouter {
     fileprivate func extractMethodFrom(owner: AnyObject, selector: Selector) -> ((String,String) -> AnyObject)? {
         let method: Method
         if owner is AnyClass {
-            method = class_getClassMethod(owner as! AnyClass, selector)
+            method = class_getClassMethod(owner as? AnyClass, selector)!
         } else {
-            method = class_getInstanceMethod(type(of: owner), selector)
+            method = class_getInstanceMethod(type(of: owner), selector)!
         }
         
         let implementation = method_getImplementation(method)

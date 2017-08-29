@@ -67,7 +67,7 @@ extension ComRouter {
         self.moduleName = moduleName
         self.className = className
         self.funcName = funcName
-        self.params([], [], block)
+        self.params([], [], block: block)
     }
 }
 
@@ -80,8 +80,8 @@ extension ComRouter {
     /// - Parameters:
     ///   - params: Parameter value -[Any]
     ///   - block: Perform a callback result
-    func params(_ params:Any ...,_ block: (Any?,NSError?)->()) {
-        self.params(params, [], block)
+    func params(_ params:Any ... ,  block: (Any?,NSError?)->()) {
+        self.params(params, [], block: block)
     }
     
     
@@ -91,12 +91,12 @@ extension ComRouter {
     ///   - params: Parameter value -[Any]
     ///   - paramNames: Parameter name -[String]
     ///   - block: Perform a callback result
-    func params(_ params:Any ..., paramNames:[String], _ block: (Any?,NSError?)->()) {
+    func params(_ params:Any ..., paramNames:[String],  block: (Any?,NSError?)->()) {
         if params.count != paramNames.count {
             block(nil,ComRouterError.params.paramNamesLimit.error());
             return
         }
-        self.params(params, paramNames, block)
+        self.params(params, paramNames, block: block)
     }
     
     
@@ -106,7 +106,7 @@ extension ComRouter {
     ///   - params: Parameter value -[Any]
     ///   - paramNames: Parameter name -[Index,String] Parameter name position , Parameter name
     ///   - block: Perform a callback result
-    func params(_ params:Any ..., paramNames:Dictionary<Int,String>, _ block: (Any?,NSError?)->()) {
+    func params(_ params:Any ..., paramNames:Dictionary<Int,String>,  block: (Any?,NSError?)->()) {
         var paramNameArr:[String] = []
         params.enumerated().forEach { (index,value) in
             let paramName = paramNames[index]
@@ -116,7 +116,7 @@ extension ComRouter {
                 paramNameArr.append("")
             }
         }
-        self.params(params, paramNameArr, block)
+        self.params(params, paramNameArr, block: block)
     }
     
     /// Call Function
@@ -125,7 +125,7 @@ extension ComRouter {
     ///   - params: [Parameter]
     ///   - paramNames: [Parameter name]
     ///   - block: Call block (result,NSError)
-    fileprivate func params(_ params:[Any], _ paramNames:[String], _ block: (Any?,NSError?)->()) {
+    fileprivate func params(_ params:[Any], _ paramNames:[String],  block: (Any?,NSError?)->()) {
         // Compile selectorName according to funcName, params, paramNames
         let (selectorName,selectorNameError) = self.selectorName(self.funcName,params,paramNames)
         guard (selectorNameError == nil) else {

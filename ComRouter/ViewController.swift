@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ComRoute
+//  ComRouter
 //
 //  Created by jackWang on 2017/6/25.
 //  Copyright © 2017年 jackWang. All rights reserved.

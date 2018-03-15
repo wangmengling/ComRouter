@@ -12,7 +12,7 @@ import Foundation
 let comRouter = ComRouter()
 class ComRouter: NSObject {
     
-    class var shareInstance: ComRouter {
+    public class var shareInstance: ComRouter {
         return comRouter;
     }
     
@@ -25,17 +25,17 @@ class ComRouter: NSObject {
 }
 
 extension ComRouter {
-    func moduleName(_ moduleName: String) -> Self {
+    public func moduleName(_ moduleName: String) -> Self {
         self.moduleName = moduleName
         return self;
     }
     
-    func className(_ className: String) -> Self {
+    public func className(_ className: String) -> Self {
         self.className = className
         return self;
     }
     
-    func funcName(_ funcName: String) -> Self {
+    public func funcName(_ funcName: String) -> Self {
         self.funcName = funcName
         return self;
     }
@@ -48,7 +48,7 @@ extension ComRouter {
     ///   - moduleName: Module name
     ///   - className: Class name
     ///   - funcName: Function name
-    func call(_ moduleName:String, _ className:String, _ funcName:String) -> Self {
+    public func call(_ moduleName:String, _ className:String, _ funcName:String) -> Self {
         self.moduleName = moduleName
         self.className = className
         self.funcName = funcName
@@ -63,7 +63,7 @@ extension ComRouter {
     ///   - className: Class name
     ///   - funcName: Function name
     ///   - block: Perform a callback result
-    func call(_ moduleName:String, _ className:String, _ funcName:String, block: (Any,NSError?)->()) -> Void {
+    public func call(_ moduleName:String, _ className:String, _ funcName:String, block: (Any,NSError?)->()) -> Void {
         self.moduleName = moduleName
         self.className = className
         self.funcName = funcName
@@ -80,7 +80,7 @@ extension ComRouter {
     /// - Parameters:
     ///   - params: Parameter value -[Any]
     ///   - block: Perform a callback result
-    func params(_ params:Any ... ,  block: (Any?,NSError?)->()) {
+    public func params(_ params:Any ... ,  block: (Any?,NSError?)->()) {
         self.params(params, [], block: block)
     }
     
@@ -91,7 +91,7 @@ extension ComRouter {
     ///   - params: Parameter value -[Any]
     ///   - paramNames: Parameter name -[String]
     ///   - block: Perform a callback result
-    func params(_ params:Any ..., paramNames:[String],  block: (Any?,NSError?)->()) {
+    public func params(_ params:Any ..., paramNames:[String],  block: (Any?,NSError?)->()) {
         if params.count != paramNames.count {
             block(nil,ComRouterError.params.paramNamesLimit.error());
             return
@@ -106,7 +106,7 @@ extension ComRouter {
     ///   - params: Parameter value -[Any]
     ///   - paramNames: Parameter name -[Index,String] Parameter name position , Parameter name
     ///   - block: Perform a callback result
-    func params(_ params:Any ..., paramNames:Dictionary<Int,String>,  block: (Any?,NSError?)->()) {
+    public func params(_ params:Any ..., paramNames:Dictionary<Int,String>,  block: (Any?,NSError?)->()) {
         var paramNameArr:[String] = []
         params.enumerated().forEach { (index,value) in
             let paramName = paramNames[index]

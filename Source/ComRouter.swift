@@ -10,7 +10,7 @@ import Foundation
 
 
 let comRouter = ComRouter()
-class ComRouter: NSObject {
+public class ComRouter: NSObject {
     
     public class var shareInstance: ComRouter {
         return comRouter;

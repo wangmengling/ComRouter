@@ -327,6 +327,29 @@ extension ComRouterManager {
         let result = self.callSelectorAction(ower, selectorAction, implementation, params)
         block(result,nil)
     }
+    
+    /// Initiates a call and returns the result of the call
+    ///
+    /// - Parameters:
+    ///   - className: The name assembled by module and class
+    ///   - selectorName: Func name and parameter assembly of the selectorName
+    ///   - params: Method parameter value
+    ///   - block: CallBack result (Any,NSError)
+    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any]) -> (Any?,NSError?){
+        guard let ower = self.ower(className) else {
+            return  (nil,ComRouterError.property.classType.error())
+        } //Class Object Init
+        guard let selectorAction = self.selectorActions(className, selectorName) else {
+            return  (nil,ComRouterError.property.selectorAction.error())
+            
+        } //Selector
+        guard let implementation = self.selectorMethod(className, selectorName) else {
+            return (nil,ComRouterError.property.selectorIMP.error())
+        } // Selector IMP
+        
+        let result = self.callSelectorAction(ower, selectorAction, implementation, params)
+        return (result,nil)
+    }
 }
 
 // MARK: - Example

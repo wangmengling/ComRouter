@@ -77,6 +77,20 @@ extension ComRouter {
     ///   - className: Class name
     ///   - funcName: Function name
     ///   - block: Perform a callback result
+    public func call(_ moduleName:String, _ className:String, _ funcName:String) -> (Any?,NSError?) {
+        self.moduleName = moduleName
+        self.className = className
+        self.funcName = funcName
+        return self.params([], [])
+    }
+    
+    /// No parameter callback
+    ///
+    /// - Parameters:
+    ///   - moduleName: Module name
+    ///   - className: Class name
+    ///   - funcName: Function name
+    ///   - block: Perform a callback result
     public func call<E:RawRepresentable>(_ moduleName:E, _ className:E, _ funcName:E, block: (Any,NSError?)->()) -> Void {
         self.moduleName = (moduleName.rawValue as! String)
         self.className = (className.rawValue as! String)
@@ -155,17 +169,17 @@ extension ComRouter {
     ///   - block: Call block (result,NSError)
     fileprivate func params(_ param:[Any], _ paramNames:[String],  block: (Any?,NSError?)->()) {
         // Compile selectorName according to funcName, params, paramNames
-//        let (selectorName,selectorNameError) = self.selectorName(self.funcName,params,paramNames)
-//        guard (selectorNameError == nil) else {
-//            return block(selectorName,selectorNameError)
-//        }
-//        // According to the module, class classifies className
-//        let (className,classNameError) = self.className(self.moduleName, className: self.className)
-//        guard (classNameError == nil) else {
-//            return block(className,classNameError)
-//        }
-//        // Call comRouterManager
-//        ComRouterManager.shareInstance.call(className, selectorName, params, block)
+        //        let (selectorName,selectorNameError) = self.selectorName(self.funcName,params,paramNames)
+        //        guard (selectorNameError == nil) else {
+        //            return block(selectorName,selectorNameError)
+        //        }
+        //        // According to the module, class classifies className
+        //        let (className,classNameError) = self.className(self.moduleName, className: self.className)
+        //        guard (classNameError == nil) else {
+        //            return block(className,classNameError)
+        //        }
+        //        // Call comRouterManager
+        //        ComRouterManager.shareInstance.call(className, selectorName, params, block)
         let result:(Any?,NSError?) = params(param, paramNames)
         block(result.0,result.1)
     }
@@ -300,3 +314,4 @@ extension ComRouter {
         return (moduleName+"."+className,nil)
     }
 }
+

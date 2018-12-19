@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ComRoute
+@testable import ComRouter
 
 class ComRouteTests: XCTestCase {
     

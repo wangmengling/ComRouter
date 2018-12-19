@@ -41,38 +41,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.112834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "ComRouteInterface"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.113551"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "ComRouteInterface"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ComRoute/ComRouterManager.swift"
             timestampString = "520929793.814344"
             startingColumnNumber = "9223372036854775807"
@@ -106,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.114147"
+            timestampString = "566885962.110015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -122,60 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.11457"
+            timestampString = "566885962.110112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "ComRouteInterface"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.115016"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "comRouteForParams()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.11567"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "comRouteForParams(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest/ComRouteInterface.swift"
-            timestampString = "521005969.116832"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "comRouteForParams(test:_:name:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "comRouteForParam(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -224,6 +144,22 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "classObject(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComRouter/ViewController.swift"
+            timestampString = "566885962.110237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,11 +7,16 @@
 //
 
 import Foundation
-struct ComRouterManager {
+class ComRouterManager {
     static var shareInstance = ComRouterManager()
+    private let queueID = "com.maolin.comrouter.queue"
     lazy var owers:Dictionary<String,NSObject> = Dictionary()
     lazy var selectorMethods:Dictionary<String,Dictionary<String,IMP>> = Dictionary()
     lazy var selectorActions:Dictionary<String,Dictionary<String,Selector>> = Dictionary()
+    var managerQueue: DispatchQueue?
+    private init() {
+        self.managerQueue = DispatchQueue(label: queueID)
+    }
     
 }
 
@@ -26,7 +31,7 @@ extension ComRouterManager {
     ///
     /// - Parameter className: The name assembled by module and class
     /// - Returns: Class object
-    fileprivate mutating func ower(_ className:String?) -> NSObject? {
+    fileprivate func ower(_ className:String?) -> NSObject? {
         guard let className = className else { return nil }
         let ower:NSObject? = self.owers[className]
         guard let owerG = ower else {
@@ -42,7 +47,7 @@ extension ComRouterManager {
     /// - Parameter:
     /// - className: The name assembled by module and class
     /// - Returns: Create class object
-    fileprivate mutating func callower(_ className:String) -> NSObject? {
+    fileprivate func callower(_ className:String) -> NSObject? {
         let classType = NSClassFromString(className) as? NSObject.Type
         if let type = classType {
             let classInit = type.init()
@@ -61,7 +66,7 @@ extension ComRouterManager {
     ///   - className: The name assembled by module and class
     ///   - selectorName: Func name and parameter assembly of the selectorName
     /// - Returns: Selector
-    mutating func selectorActions(_ className: String?, _ selectorName: String?) -> Selector? {
+    func selectorActions(_ className: String?, _ selectorName: String?) -> Selector? {
         guard let className = className else { return nil }
         guard let selectorName = selectorName else { return nil }
         // SelectorActions is a two-dimensional array that stores values and values by className and selectorName
@@ -96,7 +101,7 @@ extension ComRouterManager {
     ///   - className: The name assembled by module and class
     ///   - selectorName: Func name and parameter assembly of the selectorName
     /// - Returns: IMP
-    mutating func selectorMethod(_ className:String?, _ selectorName:String?) -> IMP? {
+    func selectorMethod(_ className:String?, _ selectorName:String?) -> IMP? {
         guard let className = className else { return nil }
         guard let selectorName = selectorName else { return nil }
         let owerSelectors = self.selectorMethods[className];
@@ -130,7 +135,7 @@ extension ComRouterManager {
     ///   - className: The name assembled by module and class
     ///   - selectorName: Func name and parameter assembly of the selectorName
     /// - Returns: IMP
-    fileprivate mutating func getMethodIMP(_ className: String, _ selectorName: String) -> IMP? {
+    fileprivate func getMethodIMP(_ className: String, _ selectorName: String) -> IMP? {
         let ower = self.ower(className)
         guard let owerG = ower else {
             return nil
@@ -148,15 +153,12 @@ extension ComRouterManager {
     ///   - selector: selector
     /// - Returns: Method
     private func getMethod(owner: AnyObject, selector: Selector) -> Method? {
-        let method: Method?
-        if owner is AnyClass {
-            method = class_getClassMethod(owner as? AnyClass, selector)
-        } else {
+        var method: Method? = class_getClassMethod(type(of: owner), selector) //static func
+        if method == nil {
             method = class_getInstanceMethod(type(of: owner), selector)
         }
         return method;
     }
-    
     
     /// Get IMP by method
     ///
@@ -206,7 +208,7 @@ extension ComRouterManager {
     ///   - className: The name assembled by module and class
     ///   - selectorName: Func name and parameter assembly of the selectorName
     ///   - methodIMP: IMP
-    fileprivate mutating func saveSelectorMethods(_ className: String, _ selectorName: String, _ methodIMP: IMP) {
+    fileprivate func saveSelectorMethods(_ className: String, _ selectorName: String, _ methodIMP: IMP) {
         let methodIMPs = self.selectorMethods[className]
         guard var methodIMPsG = methodIMPs else {
             let newMethodIMP = [selectorName:methodIMP]
@@ -266,10 +268,13 @@ extension ComRouterManager {
     }
     
     fileprivate func sendParam(_ ower:AnyObject, _ selectorAction:Selector, _ implementation:IMP , _ param:Any, _ paramTwo:Any, _ paramThree:Any, _ paramFour:Any, _ paramFive:Any) -> Any? {
+        //由于IMP是函数指针，所以接收时需要指定@convention(c)
         typealias Function = @convention(c) (AnyObject, Selector, Any, Any, Any, Any, Any) -> Unmanaged<AnyObject>
+        //将函数指针强转为兼容函数指针的闭包
         let function = unsafeBitCast(implementation, to: Function.self)
         return function(ower, selectorAction, param, paramTwo, paramThree, paramFour, paramFive).takeUnretainedValue()
     }
+    
     
     
     /// Call sendParam() according to parameter judgment
@@ -312,20 +317,27 @@ extension ComRouterManager {
     ///   - selectorName: Func name and parameter assembly of the selectorName
     ///   - params: Method parameter value
     ///   - block: CallBack result (Any,NSError)
-    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any],  _ block: (Any?,NSError?)->()) {
-        guard let ower = self.ower(className) else {
-            return  block(nil,ComRouterError.property.classType.error())
-        } //Class Object Init
-        guard let selectorAction = self.selectorActions(className, selectorName) else {
-            return  block(nil,ComRouterError.property.selectorAction.error())
+    func call(_ className: String?, _ selectorName: String?, _ params:[Any],  _ block: @escaping (Any?,NSError?)->()) {
+        print(Thread.current)
+        managerQueue?.async(execute: {
+            print(Thread.current)
+            guard let ower = self.ower(className) else {
+                return  block(nil,ComRouterError.property.classType.error())
+            } //Class Object Init
+            guard let selectorAction = self.selectorActions(className, selectorName) else {
+                return  block(nil,ComRouterError.property.selectorAction.error())
+                
+            } //Selector
+            guard let implementation = self.selectorMethod(className, selectorName) else {
+                return block(nil,ComRouterError.property.selectorIMP.error())
+            } // Selector IMP
             
-        } //Selector
-        guard let implementation = self.selectorMethod(className, selectorName) else {
-            return block(nil,ComRouterError.property.selectorIMP.error())
-        } // Selector IMP
-        
-        let result = self.callSelectorAction(ower, selectorAction, implementation, params)
-        block(result,nil)
+            let result = self.callSelectorAction(ower, selectorAction, implementation, params)
+            DispatchQueue.main.async(execute: {
+                print(Thread.current)
+                block(result,nil)
+            })
+        })
     }
     
     /// Initiates a call and returns the result of the call
@@ -335,7 +347,7 @@ extension ComRouterManager {
     ///   - selectorName: Func name and parameter assembly of the selectorName
     ///   - params: Method parameter value
     ///   - block: CallBack result (Any,NSError)
-    mutating func call(_ className: String?, _ selectorName: String?, _ params:[Any]) -> (Any?,NSError?){
+    func call(_ className: String?, _ selectorName: String?, _ params:[Any]) -> (Any?,NSError?){
         guard let ower = self.ower(className) else {
             return  (nil,ComRouterError.property.classType.error())
         } //Class Object Init

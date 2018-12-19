@@ -8,14 +8,23 @@
 
 import Foundation
 
+struct ComRouterName<Type>: RawRepresentable {
+    typealias RawValue = String
+    
+    var rawValue: String
+    
+    init?(rawValue: ComRouterName.RawValue) {
+        self.rawValue = rawValue
+    }
+}
 
-let comRouter = ComRouter()
+
 public class ComRouter: NSObject {
     
-    public class var shareInstance: ComRouter {
-        return comRouter;
+    public static let shareInstance: ComRouter = ComRouter()
+    private override init(){
+
     }
-    
     var moduleName: String?
     var className: String?
     var funcName: String?
@@ -42,6 +51,35 @@ extension ComRouter {
 }
 
 extension ComRouter {
+    /// name: [Modulename.ClassName.Funcname] Name contains (Modulename ClassName Funcname), divided by .
+    ///
+    /// - Parameters:
+    ///   - name: [Modulename.ClassName.Funcname] Name contains (Modulename ClassName Funcname), divided by .
+    ///   - return: Perform a callback result
+    public func call(name: String) -> (Any?,NSError?) {
+        self.analysisName(name: name)
+        return self.params([], [])
+    }
+    
+    /// name: [Modulename.ClassName.Funcname] Name contains (Modulename ClassName Funcname), divided by .
+    ///
+    /// - Parameters:
+    ///   - name: [Modulename.ClassName.Funcname] Name contains (Modulename ClassName Funcname), divided by .
+    ///   - block: Perform a callback result
+    public func call(name: String, block: @escaping(Any,NSError?)->()) {
+        self.analysisName(name: name)
+        self.params([], [], block: block)
+    }
+    
+    /// name: [Modulename.ClassName.Funcname] Name contains (Modulename ClassName Funcname), divided by .
+    ///
+    /// - Parameters:
+    ///   - name: [Modulename.ClassName.Funcname] Name contains (Modulename ClassName Funcname), divided by .
+    public func call(name:String) -> Self {
+        self.analysisName(name: name)
+        return self
+    }
+    
     /// call
     ///
     /// - Parameters:
@@ -63,7 +101,7 @@ extension ComRouter {
     ///   - className: Class name
     ///   - funcName: Function name
     ///   - block: Perform a callback result
-    public func call(_ moduleName:String, _ className:String, _ funcName:String, block: (Any,NSError?)->()) -> Void {
+    public func call(_ moduleName:String, _ className:String, _ funcName:String, block: @escaping(Any,NSError?)->()) -> Void {
         self.moduleName = moduleName
         self.className = className
         self.funcName = funcName
@@ -91,7 +129,7 @@ extension ComRouter {
     ///   - className: Class name
     ///   - funcName: Function name
     ///   - block: Perform a callback result
-    public func call<E:RawRepresentable>(_ moduleName:E, _ className:E, _ funcName:E, block: (Any,NSError?)->()) -> Void {
+    public func call<E:RawRepresentable>(_ moduleName:E, _ className:E, _ funcName:E, block: @escaping(Any,NSError?)->()) -> Void {
         self.moduleName = (moduleName.rawValue as! String)
         self.className = (className.rawValue as! String)
         self.funcName = (funcName.rawValue as! String)
@@ -122,7 +160,7 @@ extension ComRouter {
     /// - Parameters:
     ///   - params: Parameter value -[Any]
     ///   - block: Perform a callback result
-    public func params(_ params:Any ... ,  block: (Any?,NSError?)->()) {
+    public func params(_ params:Any ... ,  block: @escaping(Any?,NSError?)->()) {
         self.params(params, [], block: block)
     }
     
@@ -133,7 +171,7 @@ extension ComRouter {
     ///   - params: Parameter value -[Any]
     ///   - paramNames: Parameter name -[String]
     ///   - block: Perform a callback result
-    public func params(_ params:Any ..., paramNames:[String],  block: (Any?,NSError?)->()) {
+    public func params(_ params:Any ..., paramNames:[String],  block: @escaping(Any?,NSError?)->()) {
         if params.count != paramNames.count {
             block(nil,ComRouterError.params.paramNamesLimit.error());
             return
@@ -148,7 +186,7 @@ extension ComRouter {
     ///   - params: Parameter value -[Any]
     ///   - paramNames: Parameter name -[Index,String] Parameter name position , Parameter name
     ///   - block: Perform a callback result
-    public func params(_ params:Any ..., paramNames:Dictionary<Int,String>,  block: (Any?,NSError?)->()) {
+    public func params(_ params:Any ..., paramNames:Dictionary<Int,String>,  block: @escaping(Any?,NSError?)->()) {
         var paramNameArr:[String] = []
         params.enumerated().forEach { (index,value) in
             let paramName = paramNames[index]
@@ -167,21 +205,20 @@ extension ComRouter {
     ///   - params: [Parameter]
     ///   - paramNames: [Parameter name]
     ///   - block: Call block (result,NSError)
-    fileprivate func params(_ param:[Any], _ paramNames:[String],  block: (Any?,NSError?)->()) {
+    fileprivate func params(_ params:[Any], _ paramNames:[String],  block: @escaping (Any?,NSError?)->()) {
         // Compile selectorName according to funcName, params, paramNames
-        //        let (selectorName,selectorNameError) = self.selectorName(self.funcName,params,paramNames)
-        //        guard (selectorNameError == nil) else {
-        //            return block(selectorName,selectorNameError)
-        //        }
-        //        // According to the module, class classifies className
-        //        let (className,classNameError) = self.className(self.moduleName, className: self.className)
-        //        guard (classNameError == nil) else {
-        //            return block(className,classNameError)
-        //        }
-        //        // Call comRouterManager
-        //        ComRouterManager.shareInstance.call(className, selectorName, params, block)
-        let result:(Any?,NSError?) = params(param, paramNames)
-        block(result.0,result.1)
+        
+        let (selectorName,selectorNameError) = self.selectorName(self.funcName,params,paramNames)
+        guard (selectorNameError == nil) else {
+            return block(selectorName,selectorNameError)
+        }
+        // According to the module, class classifies className
+        let (className,classNameError) = self.className(self.moduleName, className: self.className)
+        guard (classNameError == nil) else {
+            return block(className,classNameError)
+        }
+        // Call comRouterManager
+        ComRouterManager.shareInstance.call(className, selectorName, params, block)
     }
 }
 
@@ -312,6 +349,20 @@ extension ComRouter {
             return (className,error)
         }
         return (moduleName+"."+className,nil)
+    }
+    
+    private func analysisName(name: String) {
+        let array = name.split(separator: ".")
+        if array.count == 3{
+            self.moduleName = String(array[0])
+            self.className = String(array[1])
+            self.funcName = String(array[2])
+        }else if array.count == 2{
+            self.className = String(array[0])
+            self.funcName = String(array[1])
+        }else if array.count == 1{
+            self.funcName = String(array[0])
+        }
     }
 }
 

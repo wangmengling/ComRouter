@@ -39,8 +39,9 @@ class ComRouteInterface: NSObject {
 //        return test as AnyObject;
 //    }
     
-    func comRouteForParams() {
+    static func comRouteForParams() -> String{
         print("params");
+        return "params"
     }
     
     func comRouteForParams(_ test: String) -> Any{

@@ -7,6 +7,12 @@ ComRouter is a componentized intermediate router, ComRouter is a component of th
 ## usage
 **function params()** Maximum support for 5 parameters 
 
+> URL call
+
+    ComRouter.shareInstance.call(name: "ComRouteCompenontTest.ComRouteInterface.comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in
+        print(error as Any)
+    }
+
 > Direct call
 
 	ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ComRouter'
-  s.version = '1.0.6'
+  s.version = '1.0.8'
   #s.license = 'MIT'
   # s.license  = { :type => "MIT", :file => "https://github.com/wangmengling/ComRouter" }
   s.license          =   { :type => 'MIT', :file => 'LICENSE' }
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.authors = { 'wangmengling' => '294025529@qq.com' }
   s.source = { :git => 'https://github.com/wangmengling/ComRouter.git', :tag => "#{s.version}" }
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
   # s.osx.deployment_target = '10.10'
   # s.tvos.deployment_target = '9.0'
   # s.watchos.deployment_target = '2.0'

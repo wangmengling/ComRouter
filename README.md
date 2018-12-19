@@ -1,6 +1,6 @@
 # ComRouter
 
-**platform**： Ios Swift3
+**platform**： Ios Swift4.2
 
 ComRouter is a componentized intermediate router, ComRouter is a component of the middle of the router, call the external interface between the various components
 

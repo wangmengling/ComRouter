@@ -25,13 +25,15 @@ class ViewController: UIViewController {
 //        ComRouter.shareInstance.moduleName("ComRouteCompenontTest").className("ComRouteInterface").funcName("comRouteForParams").params("one", "two") { (result,error) in
 //            print(error as Any)
 //        }
-//        ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in
-//            print(error as Any)
-//        }
+        ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params("one", "two", paramNames: ["test","string"]) { (result,error) in
+            print(error as Any)
+        }
         ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams") { (result,error) in
             print(Thread.current)
             print(result,error)
         }
+        
+        
 //        ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams").params(<#T##params: [Any]##[Any]#>, <#T##paramNames: [String]##[String]#>, block: <#T##(((Any) -> Any)?, NSError?) -> ()#>)
 //        let (result,error) =  ComRouter.shareInstance.call("ComRouteCompenontTest", "ComRouteInterface", "comRouteForParams")
 //        print(result,error)

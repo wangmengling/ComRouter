@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class ComRouteInterface: NSObject {
+open class ComRouteInterface: NSObject {
 //    func comRouteForParams(_ params: Dictionary<String,Any>?) {
 //        print(params);
 //    }
@@ -40,6 +40,11 @@ class ComRouteInterface: NSObject {
 //    }
     
     static func comRouteForParams() -> String{
+        print("params");
+        return "params"
+    }
+    
+    func comRouteForParams() -> String{
         print("params");
         return "params"
     }

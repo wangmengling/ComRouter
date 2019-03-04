@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ComRouter'
-  s.version = '1.0.9'
+  s.version = '1.1.0'
   #s.license = 'MIT'
   # s.license  = { :type => "MIT", :file => "https://github.com/wangmengling/ComRouter" }
   s.license          =   { :type => 'MIT', :file => 'LICENSE' }

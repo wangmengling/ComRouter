@@ -25,7 +25,6 @@
 		191BFF641F0099F9002A27A1 /* ComRouterDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouterDemo.framework */; };
 		191BFF651F0099F9002A27A1 /* ComRouterDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF4F1F0099F9002A27A1 /* ComRouterDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		191BFF6E1F009A4B002A27A1 /* ComRouteDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191BFF6D1F009A4B002A27A1 /* ComRouteDemo.swift */; };
-		19A882751F01EE510098B3B3 /* ComRouteCompenontTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 191BFF9A1F009BC6002A27A1 /* ComRouteCompenontTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +41,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1626427E1EFF93E80084D9E4;
 			remoteInfo = ComRoute;
+		};
+		1639C7D6222D015400F846CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1639C7D1222D015400F846CA /* ComRouteCompenontTest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 191BFF791F009BA5002A27A1;
+			remoteInfo = ComRouteCompenontTest;
+		};
+		1639C7D8222D015400F846CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1639C7D1222D015400F846CA /* ComRouteCompenontTest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 191BFF821F009BA5002A27A1;
+			remoteInfo = ComRouteCompenontTestTests;
 		};
 		191BFF591F0099F9002A27A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -63,20 +76,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 191BFF4E1F0099F9002A27A1;
 			remoteInfo = ComRouteDemo;
-		};
-		191BFF991F009BC6002A27A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 191BFF941F009BC6002A27A1 /* ComRouteCompenontTest.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 191BFF791F009BA5002A27A1;
-			remoteInfo = ComRouteCompenontTest;
-		};
-		191BFF9B1F009BC6002A27A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 191BFF941F009BC6002A27A1 /* ComRouteCompenontTest.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 191BFF821F009BA5002A27A1;
-			remoteInfo = ComRouteCompenontTestTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -109,6 +108,7 @@
 		162642A21EFF93E80084D9E4 /* ComRouteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteUITests.swift; sourceTree = "<group>"; };
 		162642A41EFF93E80084D9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1626432F1EFFA1AE0084D9E4 /* ComRouteDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteDemo.swift; sourceTree = "<group>"; };
+		1639C7D1222D015400F846CA /* ComRouteCompenontTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ComRouteCompenontTest.xcodeproj; path = CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest.xcodeproj; sourceTree = "<group>"; };
 		16877E721F0E7BA10010118A /* ComRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouter.swift; sourceTree = "<group>"; };
 		16877E731F0E7BA10010118A /* ComRouterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterError.swift; sourceTree = "<group>"; };
 		16877E741F0E7BA10010118A /* ComRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouterManager.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 		191BFF5E1F0099F9002A27A1 /* ComRouteDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteDemoTests.swift; sourceTree = "<group>"; };
 		191BFF601F0099F9002A27A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		191BFF6D1F009A4B002A27A1 /* ComRouteDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComRouteDemo.swift; sourceTree = "<group>"; };
-		191BFF941F009BC6002A27A1 /* ComRouteCompenontTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ComRouteCompenontTest.xcodeproj; path = CompenontProject/ComRouteCompenontTest/ComRouteCompenontTest.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +127,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19A882751F01EE510098B3B3 /* ComRouteCompenontTest.framework in Frameworks */,
 				191BFF641F0099F9002A27A1 /* ComRouterDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +174,7 @@
 				191BFF501F0099F9002A27A1 /* ComRouterDemo */,
 				191BFF5D1F0099F9002A27A1 /* ComRouterDemoTests */,
 				162642801EFF93E80084D9E4 /* Products */,
+				1639C7C9222CFB2100F846CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +222,22 @@
 			path = ComRouterUITests;
 			sourceTree = "<group>";
 		};
+		1639C7C9222CFB2100F846CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1639C7D2222D015400F846CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1639C7D7222D015400F846CA /* ComRouteCompenontTest.framework */,
+				1639C7D9222D015400F846CA /* ComRouteCompenontTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		16877E711F0E7BA10010118A /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,18 +271,9 @@
 		191BFF931F009BB7002A27A1 /* Compenont */ = {
 			isa = PBXGroup;
 			children = (
-				191BFF941F009BC6002A27A1 /* ComRouteCompenontTest.xcodeproj */,
+				1639C7D1222D015400F846CA /* ComRouteCompenontTest.xcodeproj */,
 			);
 			name = Compenont;
-			sourceTree = "<group>";
-		};
-		191BFF951F009BC6002A27A1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				191BFF9A1F009BC6002A27A1 /* ComRouteCompenontTest.framework */,
-				191BFF9C1F009BC6002A27A1 /* ComRouteCompenontTestTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +394,7 @@
 				TargetAttributes = {
 					1626427E1EFF93E80084D9E4 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					162642921EFF93E80084D9E4 = {
 						CreatedOnToolsVersion = 9.0;
@@ -421,8 +427,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 191BFF951F009BC6002A27A1 /* Products */;
-					ProjectRef = 191BFF941F009BC6002A27A1 /* ComRouteCompenontTest.xcodeproj */;
+					ProductGroup = 1639C7D2222D015400F846CA /* Products */;
+					ProjectRef = 1639C7D1222D015400F846CA /* ComRouteCompenontTest.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -437,18 +443,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		191BFF9A1F009BC6002A27A1 /* ComRouteCompenontTest.framework */ = {
+		1639C7D7222D015400F846CA /* ComRouteCompenontTest.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ComRouteCompenontTest.framework;
-			remoteRef = 191BFF991F009BC6002A27A1 /* PBXContainerItemProxy */;
+			remoteRef = 1639C7D6222D015400F846CA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		191BFF9C1F009BC6002A27A1 /* ComRouteCompenontTestTests.xctest */ = {
+		1639C7D9222D015400F846CA /* ComRouteCompenontTestTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ComRouteCompenontTestTests.xctest;
-			remoteRef = 191BFF9B1F009BC6002A27A1 /* PBXContainerItemProxy */;
+			remoteRef = 1639C7D8222D015400F846CA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -701,12 +707,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F9R5KPEXS;
 				INFOPLIST_FILE = ComRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maolin.ComRouter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maolin.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -719,12 +726,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5F9R5KPEXS;
 				INFOPLIST_FILE = ComRouter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maolin.ComRouter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maolin.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
